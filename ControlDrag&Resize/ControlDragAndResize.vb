@@ -22,6 +22,9 @@ Public Class ControlDragAndResize
         BottomLeft
     End Enum
 
+    ''' <summary>
+    ''' Sets margins from control border in pixels
+    ''' </summary>
     Public Shared Property Margin As Integer = 5
 
     Private Shared MousePressed As Boolean = False
