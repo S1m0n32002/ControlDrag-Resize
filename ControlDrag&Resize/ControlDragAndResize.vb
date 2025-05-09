@@ -1,7 +1,5 @@
-﻿Imports System.Windows.Forms
-Imports System.Drawing
-Imports System.IO
-Imports System.Security.Policy
+﻿Imports System.Drawing
+Imports System.Windows.Forms
 Public Class ControlDragAndResize
     Private Structure CtrlLimits
         Friend Left As Integer
@@ -37,8 +35,13 @@ Public Class ControlDragAndResize
     ''' <summary>
     ''' Enables drag and resize for the specified control.
     ''' </summary>
+    Public Shared Sub EnableDragAndResize(Control As Control)
+        EnableDragAndResize(Control, False)
+    End Sub
+
+    ''' <inheritdoc cref="EnableDragAndResize(Control)"/>
     ''' <param name="DragOnly">Spacifies if the control can only be dragged.</param>
-    Public Shared Sub EnableDragAndResize(Control As Control, Optional DragOnly As Boolean = False)
+    Public Shared Sub EnableDragAndResize(Control As Control, DragOnly As Boolean)
         AddHandler Control.MouseMove, AddressOf DragAndResizeHandler
         AddHandler Control.MouseUp, AddressOf DragAndResizeReleaseHandler
         ResizMem.Add(Control, Not DragOnly)
